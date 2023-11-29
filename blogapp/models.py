@@ -39,7 +39,7 @@ class Blog(models.Model):
 class BlogComments(models.Model):
     blog_fk = models.ForeignKey(Blog,on_delete=models.CASCADE)
     blog_comment = models.TextField()
-    blog_commented_user_fk = models.ForeignKey(UserProfile,on_delete=models.CASCADE)
+    blog_commented_user_fk = models.ForeignKey(UserProfile,on_delete=models.CASCADE,blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     is_active = models.CharField(max_length=1,choices=status_choices,default=1)
